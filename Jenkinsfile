@@ -1,15 +1,8 @@
-pipeline {
-    agent {
-        dockerfile true
-    }
-	stages{
-		stage('Build-status') {
-            agent {
-                docker { image 'alpine' }
-				  }
-            steps {
-                sh 'docker ps -a'
-				}
-		}
+node {
+    checkout scm
+    def testImage = docker.build("alpine:latest") 
+
+    testImage.inside {
+        sh 'make test'
     }
 }
