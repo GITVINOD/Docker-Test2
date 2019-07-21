@@ -2,11 +2,12 @@ pipeline {
     agent {
         dockerfile true
     }
-    stages {
-        stage('Build status') {
+    stage('Build-status') {
+            agent {
+                docker { image 'alpine' }
+            }
             steps {
                 sh 'docker ps -a'
             }
-        }
     }
 }
