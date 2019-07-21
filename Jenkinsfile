@@ -3,9 +3,9 @@ pipeline {
         dockerfile true
     }
     stages {
-        stage('Test') {
+        stage('Build status') {
             steps {
-                echo 'Hello World'
+                sh 'docker ps -a'
             }
         }
     }
