@@ -1,8 +1,10 @@
-node {
-    checkout scm
-    def testImage = docker.build("alpine:latest") 
-
-    testImage.inside {
-        sh 'make test'
+pipeline {
+    agent {
+        dockerfile true
+    }
+    stage('Build-status') {
+            steps {
+                sh 'docker ps -a'
+            }
     }
 }
