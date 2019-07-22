@@ -6,7 +6,7 @@ pipeline {
 	stages{
     stage('Build-status') {
             steps {
-                sh 'docker ps -a'
+                echo "Hello-World"
             }
     }
 	}
